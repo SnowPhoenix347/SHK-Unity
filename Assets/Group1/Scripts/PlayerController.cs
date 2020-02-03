@@ -48,7 +48,7 @@ public class PlayerController : MonoBehaviour
 
     private IEnumerator SpeedToDefault(float defaultSpeed)
     {
-        _speed = defaultSpeed;
+        _speed -= defaultSpeed * _bonusRatio;
         yield return new WaitForSeconds(_bonusDuration);
     }
 }

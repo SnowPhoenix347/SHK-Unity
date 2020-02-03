@@ -6,7 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private BonusChecker _bonusChecker;
     [SerializeField] private float _speed = 2;
-    [SerializeField] private float _bonusMultiplier = 2;
+    [SerializeField] private float _bonusRatio = 1;
     [SerializeField] private float _bonusDuration = 2;
 
     private void OnEnable()
@@ -42,7 +42,7 @@ public class PlayerController : MonoBehaviour
     private void UseBonus()
     {
         float defaultSpeed = _speed;
-        _speed *= _bonusMultiplier;
+        _speed += defaultSpeed * _bonusRatio;
         StartCoroutine(SpeedToDefault(defaultSpeed));
     }
 

@@ -18,12 +18,12 @@ public class EnemiesCounter : MonoBehaviour
 
     private void OnEnable()
     {
-        _attackChecker.Attacked += CountEnemies;
+        _attackChecker.Attacked += OnAttacked;
     }
 
     private void OnDisable()
     {
-        _attackChecker.Attacked += CountEnemies;
+        _attackChecker.Attacked += OnAttacked;
     }
 
     private void Start()
@@ -32,7 +32,7 @@ public class EnemiesCounter : MonoBehaviour
         _enemiesCount = _enemies.Length;
     }
 
-    private void CountEnemies()
+    private void OnAttacked()
     {
         _enemiesCount--;
         if (_enemiesCount == 0)

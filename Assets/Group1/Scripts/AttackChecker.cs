@@ -5,12 +5,12 @@ using UnityEngine.Events;
 
 public class AttackChecker : MonoBehaviour
 {
-    [SerializeField] private UnityEvent _onAttacked;
+    [SerializeField] private UnityEvent _attacked;
 
     public event UnityAction Attacked
     {
-        add => _onAttacked.AddListener(value);
-        remove => _onAttacked.RemoveListener(value);
+        add => _attacked.AddListener(value);
+        remove => _attacked.RemoveListener(value);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -20,7 +20,7 @@ public class AttackChecker : MonoBehaviour
         if (collision.GetComponent<Enemy>())
         {
             Debug.Log("Attack");
-            _onAttacked.Invoke();
+            _attacked.Invoke();
             Destroy(collision.gameObject);
         }
     }

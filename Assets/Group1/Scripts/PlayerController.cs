@@ -11,12 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _bonusChecker.BonusCollected += UseBonus;
+        _bonusChecker.BonusCollected += OnBonusCollected;
     }
 
     private void OnDisable()
     {
-        _bonusChecker.BonusCollected += UseBonus;
+        _bonusChecker.BonusCollected += OnBonusCollected;
     }
 
     private void Update()
@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
             transform.Translate(_speed * Time.deltaTime, 0, 0);
     }
 
-    private void UseBonus()
+    private void OnBonusCollected()
     {
         float defaultSpeed = _speed;
         _speed += defaultSpeed * _bonusRatio;

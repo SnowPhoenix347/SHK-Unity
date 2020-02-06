@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class EnemiesCounter : MonoBehaviour
 {
-    [SerializeField] UnityEvent _onEnemiesExpired;
+    [SerializeField] private UnityEvent _onEnemiesExpired;
     [SerializeField] private AttackChecker _attackChecker;
     private Object[] _enemies;
     private int _enemiesCount;

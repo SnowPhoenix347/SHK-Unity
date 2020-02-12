@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    private Vector3 Target;
+    private Vector3 _targetPosition;
+
+    private void Start()
+    {
+        _targetPosition = transform.position;
+    }
 
     private void Update()
     {
-        if (transform.position == Target) Target = Random.insideUnitCircle * 4;
-        transform.position = Vector3.MoveTowards(transform.position, Target, 2 * Time.deltaTime);
+        if (transform.position == _targetPosition)
+            _targetPosition = Random.insideUnitCircle * 4;
+        transform.position = Vector3.MoveTowards(transform.position, _targetPosition, 2 * Time.deltaTime);
     }
 }

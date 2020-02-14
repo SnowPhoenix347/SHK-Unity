@@ -11,12 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _environmentTrigger.BonusCollected += OnBonusCollected;
+        _environmentTrigger.BonusCollecting += OnBonusCollected;
     }
 
     private void OnDisable()
     {
-        _environmentTrigger.BonusCollected -= OnBonusCollected;
+        _environmentTrigger.BonusCollecting -= OnBonusCollected;
     }
 
     private void Update()

@@ -11,12 +11,12 @@ public class PlayerController : MonoBehaviour
 
     private void OnEnable()
     {
-        _environmentTrigger.BonusCollecting += OnBonusCollected;
+        _environmentTrigger.BonusCollecting += OnBonusCollecting;
     }
 
     private void OnDisable()
     {
-        _environmentTrigger.BonusCollecting -= OnBonusCollected;
+        _environmentTrigger.BonusCollecting -= OnBonusCollecting;
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")) * _speed * Time.deltaTime);
     }
 
-    private void OnBonusCollected()
+    private void OnBonusCollecting()
     {
         float defaultSpeed = _speed;
         _speed += defaultSpeed * _bonusRatio;
